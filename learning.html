@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>หน้าเรียนรู้</title>
+    <style>
+        body {
+            font-family: 'Kanit', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+        }
+        h1, h2 {
+            color: #4a69bd;
+            text-align: center;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .logout-btn {
+            background-color: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .logout-btn:hover {
+            background-color: #ee5253;
+        }
+        #course-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .course-main {
+            background-color: #54a0ff;
+            color: white;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .course-main:hover {
+            background-color: #2e86de;
+            transform: translateY(-3px);
+        }
+        .course-sub {
+            list-style-type: none;
+            padding-left: 20px;
+            display: none;
+        }
+        .course-sub li {
+            background-color: #81ecec;
+            color: #2d3436;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .course-sub li:hover {
+            background-color: #00cec9;
+        }
+        #video-player {
+            margin-top: 30px;
+            text-align: center;
+        }
+        video {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 id="หนาเรยนร">หน้าเรียนรู้</h1>
+            <div>
+                <span id="username-display" class="mr-4"></span>
+                <button class="logout-btn" onclick="logout()">ออกจากระบบ</button>
+            </div>
+        </div>
+
+        <div id="course-list" class="section">
+            <h2 id="รายการคอรส">รายการคอร์ส</h2>
+            <ul>
+                <li class="course-main">Basic React 1  ความรู้พื้นฐานสำหรับ Components และ JSX
+                    <ul class="course-sub">
+                        <li data-video="https://react1.blob.core.windows.net/learningvideoclip/Basic%20React%201%20%20%E0%B8%84%E0%B8%A7%E0%B8%B2%E0%B8%A1%E0%B8%A3%E0%B8%B9%E0%B9%89%E0%B8%9E%E0%B8%B7%E0%B9%89%E0%B8%99%E0%B8%90%E0%B8%B2%E0%B8%99%E0%B8%AA%E0%B8%B3%E0%B8%AB%E0%B8%A3%E0%B8%B1%E0%B8%9A%20Components%20%E0%B9%81%E0%B8%A5%E0%B8%B0%20JSX/1_Introduction/1.introduction%20to%20Course.mp4?sp=r&st=2024-10-07T17:56:26Z&se=2025-06-27T01:56:26Z&spr=https&sv=2022-11-02&sr=b&sig=b4IKBWnCrcN%2FwbBN4mLVzMV2b%2B5CgHFViF%2BNOOshPpQ%3D">1_Introduction</li>
+                        <li data-video="https://example.com/react2.mp4">2_Introduction to React.jse</li>
+                        <li data-video="https://example.com/react3.mp4">3_Element</li>
+                    </ul>
+                </li>
+                <li class="course-main">Advanced React
+                    <ul class="course-sub">
+                        <li data-video="https://example.com/react4.mp4">1. Hooks in Depth</li>
+                        <li data-video="https://example.com/react5.mp4">2. Context API</li>
+                        <li data-video="https://example.com/react6.mp4">3. Performance Optimization</li>
+                    </ul>
+                </li>
+                <li class="course-main">Advanced React
+                    <ul class="course-sub">
+                        <li data-video="https://example.com/react4.mp4">1. Hooks in Depth</li>
+                        <li data-video="https://example.com/react5.mp4">2. Context API</li>
+                        <li data-video="https://example.com/react6.mp4">3. Performance Optimization</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div id="video-player" class="section mt-8">
+            <h2 id="video-title">เลือกคอร์สเพื่อเริ่มเรียน</h2>
+            <video id="video" controls style="display: none;">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
+    <script>
+        // Display username
+        document.addEventListener('DOMContentLoaded', function() {
+            const username = localStorage.getItem('username');
+            if (username) {
+                document.getElementById('username-display').textContent = `ยินดีต้อนรับ, ${username}`;
+            }
+        });
+
+        // Logout function
+        function logout() {
+            localStorage.removeItem('isLoggedIn');
+            localStorage.removeItem('username');
+            window.location.href = 'index.html';
+        }
+
+        // Toggle sub-courses
+        document.querySelectorAll('.course-main').forEach(item => {
+            item.addEventListener('click', function(e) {
+                if (e.target === this) {
+                    const subList = this.querySelector('.course-sub');
+                    subList.style.display = subList.style.display === 'block' ? 'none' : 'block';
+                }
+            });
+        });
+
+        // Course selection and video playback
+        document.querySelectorAll('.course-sub li').forEach(item => {
+            item.addEventListener('click', function() {
+                const videoUrl = this.getAttribute('data-video');
+                const videoTitle = this.textContent;
+                const videoPlayer = document.getElementById('video');
+                const videoTitleElement = document.getElementById('video-title');
+
+                videoPlayer.src = videoUrl;
+                videoPlayer.style.display = 'block';
+                videoTitleElement.textContent = videoTitle;
+                videoPlayer.play();
+            });
+        });
+    </script>
+</body>
+</html> 

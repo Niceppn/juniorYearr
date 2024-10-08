@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>จะทำอะไรก็ทำจ้า</title>
+    <style>
+        /* login.css */
+:root {
+  --primary-gold: #D4AF37;
+  --secondary-gold: #FFD700;
+  --dark-blue: #14213D;
+  --teal: #008080;
+  --off-white: #F5F5F5;
+  --dark-gray: #333333;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--off-white);
+  color: var(--dark-gray);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  background-color: var(--dark-blue);
+  color: white;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+
+.header div {
+  display: flex;
+  align-items: center;
+}
+
+.header .user-info {
+  margin-right: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.header a {
+  color: var(--primary-gold);
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 1rem;
+}
+
+.header a:hover {
+  text-decoration: underline;
+}
+
+.upload-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.custom-file-upload {
+  background-color: var(--teal);
+  color: white;
+  padding: 1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.custom-file-upload:hover {
+  background-color: var(--primary-gold);
+}
+
+input[type="file"] {
+  display: none;
+}
+
+button {
+  background-color: var(--teal);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+button:hover {
+  background-color: var(--primary-gold);
+  box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+}
+
+table {
+  width: 90%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: var(--dark-blue);
+  color: white;
+  text-transform: uppercase;
+}
+
+td {
+  background-color: white;
+  color: var(--dark-gray);
+}
+
+a img {
+  display: block;
+  margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .upload-container {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  table {
+    width: 100%;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 600px) {
+  .upload-container {
+    width: 100%;
+  }
+
+  .custom-file-upload, button {
+    width: 100%;
+  }
+
+  table {
+    font-size: 12px;
+  }
+}
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>อัปโหลดและแชร์ไฟล์</h1>
+        <div>
+            <span class="user-info">ยินดีต้อนรับ, <span id="username-display"></span></span>
+            <a href="learning.html" class="learning-btn">Learning-Center</a>
+            <a href="index.html" class="logout-btn" onclick="logout()">ออกจากระบบ</a>
+        </div>
+    </div>
+    
+    <div class="upload-container">
+        <label for="fileInput" class="custom-file-upload">
+            เลือกไฟล์หรือโฟลเดอร์
+        </label>
+        <input type="file" id="fileInput" multiple>
+        <button onclick="uploadFiles()">อัปโหลด</button>
+        <a href="https://github.com/Niceppn/juniorYear">
+            <img style="width: 60px; height: 60px; margin-left: 0;" src="download.png" alt="GitHub Link">
+        </a>
+    </div>
+    
+    <table id="fileTable">
+        <tr>
+            <th>ชื่อไฟล์</th>
+            <th>ขนาด</th>
+            <th>ประเภท</th>
+            <th>สถานะ</th>
+            <th>ผู้อัปโหลด</th>
+        </tr>
+        <!-- Rows of uploaded files will be dynamically added here -->
+    </table>
+    
+    <script src="script.js"></script>
+</body>
+</html>
