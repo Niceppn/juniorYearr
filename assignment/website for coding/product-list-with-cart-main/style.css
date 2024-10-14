@@ -1,0 +1,141 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+body{
+    background-color: hsl(20, 50%, 98%);
+}
+.grid-container{
+    display: grid;
+    grid-template-columns: auto auto auto ;
+    background-color: hsl(20, 50%, 98%);
+    column-gap:80px;
+    row-gap: 20px;
+    padding-left: 70px;
+    padding-right: 0px;
+}
+
+.Desserts{
+    padding-left: 75px;
+    padding-top: 50px;
+    margin-bottom: 20px;
+    font-family: "Red Hat Text";
+}
+
+.cart{
+    display: flex;
+    margin-left: 60em;
+    width: 300px;
+    height: 250px;
+    background-color: #fff;
+    margin-top: -3em;
+    position: fixed;
+    padding: 1.5em;
+    justify-content: center;
+    border-radius: 10px;
+    align-items: center;
+}
+.menu{
+    text-align: center;
+    padding: 0px;
+    width: 220px;
+    height: 200px;
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+    max-width: 100%;
+    object-fit: cover;
+    
+}
+.menu img{
+    max-width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    display: flex;
+    width: 220px;
+    height: 200px;
+}
+.container{
+    display: flex;
+}
+
+.cart-bt{
+    position: absolute;
+    width: 110px;
+    height: 30px;
+    border-radius: 20px;
+    background-color: #fff;
+    margin-top: 185px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-style: none;
+    border:1px hsl(14, 25%, 60%)solid; 
+    cursor: pointer;
+}
+.cart-bt svg{
+    width: 1em;
+    height: 1em;    
+    margin-top: 3px;
+}
+
+.cart-bt h6 {
+    display: inline;
+    margin-left: 6px;
+}
+
+
+.description{
+    width: 200px;
+    height: 50px;
+    background-color: hsl(20, 50%, 98%);
+    display: flex;
+    word-wrap: break-word;
+    flex-direction: column;
+    position: relative;
+    font-family: "Red Hat Text";
+    margin-bottom: 10px;
+}
+.waterMark{
+    margin-top: 5px;
+    color: gray;
+    font-size: 12px;
+}
+.nameMenu{
+    margin:3px 0px;
+
+}
+.price{
+    color: hsl(14, 53%, 53%);
+}
+
+.attribution{
+    margin-top: 3em;
+}
+
+.numberoforder{
+    display: flex;
+    margin-left: -6.5em;
+    margin-top: -10em;
+    font-weight: 700;
+    font-size: 20px;
+    font-family: "Red Hat Text";
+    color: rgb(174,73,43);
+    display: flex;
+    position: relative;
+}
+.orderd{
+   position: absolute;
+    margin-left: 2em;
+
+}
+.youradded{
+  
+   margin-left: -3em;
+   font-size: 12px;
+   margin-top: 1em;
+    font-family: "Red Hat Text";
+    color: rgb(170,165,156);
+    font-weight: 500;
+}
