@@ -1,4 +1,4 @@
-const ACCESS_TOKEN = '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'; // ใส่ GitHub Token ของ
+const ACCESS_TOKEN = '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'; // ใส่ GitHub Token ของ
 const REPO_OWNER = 'Niceppn'; // ชื่อผู้ใช้ GitHub ของคุณ
 const REPO_NAME = 'juniorYearr'; // ชื่อ repository ของคุณ
 const BRANCH = 'Keep'; // ชื่อ branch ที่ต้องการอัปโหลดไฟล์
